@@ -1,0 +1,116 @@
+/* Flex layout container for sidebar + dashboard content */
+.layout {
+  display: flex;
+  margin-top: 70px; /* Height of the fixed navbar */
+  min-height: calc(100vh - 70px);
+}
+/* Dashboard takes remaining space */
+.dashboard {
+  flex: 1;
+  padding: 2rem;
+  background-color: #fafafa;
+  overflow-y: auto;
+}
+
+/* Same styles from earlier... */
+.images {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  max-width: 800px;
+  margin: auto;
+}
+
+.upload-img {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.upload-img label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.upload-img img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+  border: 1px dashed #ccc;
+  border-radius: 6px;
+}
+
+.upload-img input[type="file"] {
+  display: none;
+}
+
+form label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+#pro-input,
+textarea,
+select,
+#item-price {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+.pro-size {
+  margin-bottom: 1.5rem;
+}
+
+.pro-size h2 {
+  margin-bottom: 0.5rem;
+}
+
+.sizes {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #eee;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.sizes:hover {
+  background-color: #ddd;
+}
+
+.button {
+  text-align: center;
+}
+
+.button button {
+  background-color: #6c63ff;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button button:hover {
+  background-color: #574fe3;
+}
