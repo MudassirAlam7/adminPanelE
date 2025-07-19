@@ -1,10 +1,12 @@
-/* Flex layout container for sidebar + dashboard content */
+/* =========================
+  Layout
+========================= */
 .layout {
   display: flex;
-  margin-top: 70px; /* Height of the fixed navbar */
+  margin-top: 70px; /* height of fixed navbar */
   min-height: calc(100vh - 70px);
 }
-/* Dashboard takes remaining space */
+
 .dashboard {
   flex: 1;
   padding: 2rem;
@@ -12,7 +14,9 @@
   overflow-y: auto;
 }
 
-/* Same styles from earlier... */
+/* =========================
+  Container Styles
+========================= */
 .images {
   background-color: #fff;
   padding: 2rem;
@@ -22,6 +26,9 @@
   margin: auto;
 }
 
+/* =========================
+  Upload Image
+========================= */
 .upload-img {
   display: flex;
   justify-content: space-between;
@@ -44,28 +51,38 @@
   margin-bottom: 0.5rem;
   border: 1px dashed #ccc;
   border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+.upload-img img:hover {
+  border-color: #6c63ff;
 }
 
 .upload-img input[type="file"] {
   display: none;
 }
 
+/* =========================
+  Form Elements
+========================= */
 form label {
   display: block;
   font-weight: 500;
   margin-bottom: 0.5rem;
+  color: #333;
 }
 
-#pro-input,
+input[type="text"],
+input[type="number"],
 textarea,
-select,
-#item-price {
+select {
   width: 100%;
   padding: 0.6rem;
   border: 1px solid #ccc;
   border-radius: 6px;
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
+  font-family: inherit;
 }
 
 textarea {
@@ -73,6 +90,25 @@ textarea {
   height: 100px;
 }
 
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #6c63ff;
+  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+}
+
+/* =========================
+  Subcategory & Stock
+========================= */
+.subcategory,
+.pro-stock {
+  margin-bottom: 1.5rem;
+}
+
+/* =========================
+  Sizes Section
+========================= */
 .pro-size {
   margin-bottom: 1.5rem;
 }
