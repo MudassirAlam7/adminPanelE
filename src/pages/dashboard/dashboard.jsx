@@ -14,7 +14,7 @@ const Dashboard = () => {
    stock : '',
    images: "",
   });
-  const [file, setFile] = useState(null);
+  const [selectimages, setSelectImages] = useState([]);
 
   const handlesubmit = async (e) => {
     e.preventDefault(); 
@@ -25,7 +25,11 @@ const Dashboard = () => {
     formData.append('category', product.category);
     formData.append('subcategory', product.subcategory);
     formData.append('stock', product.stock);
-    formData.append('file', file); // Append the selected file
+
+    selectimages.forEach((image,) => {
+      if (image) formData.append(`files`, image);
+    });
+    
     try{
       const response = await fetch("https://e-commercebackend-oovu.onrender.com/api/products/uploads", {
         method: 'POST',
@@ -46,6 +50,11 @@ const Dashboard = () => {
     
   }
 
+  function handleImagechange(e, num) {
+    const files = [...selectimages]
+    files[num] = e.target.files[0];
+    setSelectImages(files);
+  }
 
   
   return (
@@ -59,11 +68,15 @@ const Dashboard = () => {
           <div className="images">
             <form>
               <div className="upload-img">
+               <div className="upload-img">
                 <h2>Upload Images</h2>
-                  <label  className={`image`}>
+                {[1, 2, 3, 4].map((num) => (
+                  <label key={num} className={`image${num}`}>
                     <img src={image} alt="" />
-                    <input type="file" id={`image`} onChange={(e)=>setFile(e.target.files[0])} />
+                    <input type="file" id={`image${num}`} accept='/image*' onChange={(e)=>handleImagechange(e, num)} />
                   </label>
+                ))}
+              </div>
               </div>
 
               <div className="product-name">
